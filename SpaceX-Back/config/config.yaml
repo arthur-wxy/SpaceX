@@ -1,0 +1,11 @@
+# 命令行全写在这
+cmd:
+  cmd1: cd && unzip && cp
+  cmd2: pwd
+  cmd3: ls
+
+# 各种路径写在这
+path:
+  portal_back_path: D:\Source\Portal-BackEnd
+  sln_path: D:\Source\Portal-BackEnd\dotnet_xrm\ServiceOne-Portal.sln
+  back_dll_path: D:\Source\Portal-BackEnd\dotnet_xrm\\bin
