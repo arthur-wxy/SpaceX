@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 import time
 
-from server_conn import SSHConnect
+from .server_conn import SSHConnect
 from .portalRelease import git_pull
 from para_test import zip_dir
 from appBackEndRelease import compile_sln
@@ -27,7 +27,7 @@ PATH_INFO ={'portal_back_path': 'D:\Source\Portal-BackEnd',
             'PBZip_path': 'D:\Source\\tmp_files\\PBackRelease.zip'
 }
 
-CMD = {'cmd1': 'cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWebPre/bin',
+CMD = {'cmd1': 'cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWeb/bin',
        'cmd2': 'pwd'
 }
 
@@ -58,15 +58,21 @@ def exc():
     ssh.disconnect()
 
 
+def portalBackRelease():
+    complie_and_zip()
+    time.sleep(2)
+    conn_and_deploy(PORTAL_SERVER2[0], PORTAL_SERVER2[1], PORTAL_SERVER2[2], PATH_INFO['PBZip_path'],
+                    PATH_INFO['target_path'])
+    print(info('server1(60) deployed'))
+
+
 if __name__ == '__main__':
+    pass
     # exc()
 
 
     # 后端编译打包
-    complie_and_zip()
-    # time.sleep(2)
-    conn_and_deploy(PORTAL_SERVER2[0], PORTAL_SERVER2[1], PORTAL_SERVER2[2], PATH_INFO['PBZip_path'], PATH_INFO['target_path'])
-    print(info('server1(60) deployed'))
+
     # 部署服务器1
     #     conn_and_deploy(PORTAL_SERVER1[0], PORTAL_SERVER1[1], PORTAL_SERVER1[2], PATH_INFO['PBZip_path'], PATH_INFO['target_path'])
     #print(info('server1(21) deployed'))
