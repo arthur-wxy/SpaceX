@@ -4,13 +4,12 @@ import json
 import time
 import yaml
 
-
 from flask import Flask
 from flask import request
 from flask import redirect
 from flask import jsonify
 from flask_cors import *
-
+from .main.portalBack_deploy import portalBackRelease
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -28,10 +27,10 @@ def start_deploy():
         branch = dict1['branch']
         print(client, server, file, branch)
         if client == 'appfront':
-            if server == 'app1':
-                pass
-            else:
-                time.sleep(3)
+            try:
+                portalBackRelease()
+                return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
+            except:
                 return {'stateCode': '202', 'Msg': 'fail', 'client': '{}'.format(client)}
         elif client == 'appback':
             return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
@@ -41,22 +40,6 @@ def start_deploy():
             return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
         else:
             return {'stateCode': '203', 'Msg': 'fail', 'client': 'no such client'}
-
-        # elif client == 'appfront':
-        #     return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
-        # else:
-        #     return {'stateCode': '201', 'Msg': 'fail', 'client': '{}'.format(client)}
-
-            # if client == 'appfront':
-            #     return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
-            # else:
-            #     return {'stateCode': '201', 'Msg': 'fail', 'client': '{}'.format(client)}
-
-
-        # print('client is : {}'.format(client))
-        # print('server1 is : {}'.format(server1))
-        # print('server2 is : {}'.format(server2))
-
 
     else:
         return {'只接受post请求!'}

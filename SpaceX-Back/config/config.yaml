@@ -1,6 +1,6 @@
 # 命令行全写在这
 cmd:
-  cmd1: cd && unzip && cp
+  cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWebPre/bin
   cmd2: pwd
   cmd3: ls
 
@@ -9,3 +9,23 @@ path:
   portal_back_path: D:\Source\Portal-BackEnd
   sln_path: D:\Source\Portal-BackEnd\dotnet_xrm\ServiceOne-Portal.sln
   back_dll_path: D:\Source\Portal-BackEnd\dotnet_xrm\\bin
+
+# dll文件写在这
+dll:
+  app:
+    - RekTec.Xmobile.Biz.Service.dll
+    - RekTec.Xmobile.Biz.dll
+    - RekTec.Xmobile.Model.dll
+    - RekTec.Xmobile.Service.WebApi.dll
+    - RekTec.XStudio.FileStorage.PortalDBFileSystem.dll
+  portal:
+    - RekTec.XStudio.Crm.WebApi.dll
+    - RekTec.XStudio.Exam.WebApi.dll
+    - RekTec.XStudio.Expense.Biz.dll
+    - RekTec.XStudio.Exam.WebApi.dll
+    - RekTec.XStudio.Parts.WebApi.dll
+    - RekTec.XStudio.Public.WebApi.dll
+    - RekTec.XStudio.Service.Biz.dll
+    - RekTec.XStudio.Service.WebApi.dll
+    - RekTec.XStudio.Station.WebApi.dll
+    - RekTec.XStudio.Station.Biz.dll
