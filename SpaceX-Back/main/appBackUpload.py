@@ -5,10 +5,10 @@ import time
 import datetime
 import shutil
 
-from appFrontUpload import git_push
-from portalRelease import git_pull
-from appBackEndRelease import compile_sln
-from dll_module import mobile
+from .appFrontUpload import git_push
+from .portalRelease import git_pull
+from .appBackEndRelease import compile_sln
+from .dll_module import mobile
 
 
 def move(source_path, target_path, files):

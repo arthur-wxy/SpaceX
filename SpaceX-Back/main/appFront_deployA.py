@@ -7,9 +7,9 @@ from appRelease import build_h5, build_vue
 from para_test import zip_dir
 from logger import info
 
-
-APP_SERVER1 = ['10.151.66.17', 'crmadmin', 'auxp@ssw0rd']
-APP_SERVER2 = ['10.151.66.31', 'crmadmin', 'auxp@ssw0rd']
+#
+# APP_SERVER1 = ['10.151.66.17', 'crmadmin', 'auxp@ssw0rd']
+# APP_SERVER2 = ['10.151.66.31', 'crmadmin', 'auxp@ssw0rd']
 
 PATH_INFO ={'app_front_path': 'D:\Source\devs\APP-FrontEnd\HtmlSource_app',
             'vue_path': 'D:\Source\devs\APP-FrontEnd\HtmlSource_app\h5-v2',

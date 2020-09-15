@@ -3,12 +3,12 @@ import time
 
 from .server_conn import SSHConnect
 from .portalRelease import git_pull
-from para_test import zip_dir
-from appBackEndRelease import compile_sln
-from dll_module import portal
-from appBackUpload import copy_dll
-from logger import info
-from portalFront_deploy import conn_and_deploy
+from .para_test import zip_dir
+from .appBackEndRelease import compile_sln
+from .dll_module import portal
+from .appBackUpload import copy_dll
+from .logger import info
+from .portalFront_deploy import conn_and_deploy
 
 
 # PORTAL_SERVER1 = ['10.151.66.21', 'username', 'password']
@@ -35,7 +35,7 @@ CMD = {'cmd1': 'cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip 
 def complie_and_zip():
 
     # 拉取代码
-    git_pull(PATH_INFO['portal_back_path'])
+    # git_pull(PATH_INFO['portal_back_path'])
     time.sleep(3)
     # 后端编译
     compile_sln(PATH_INFO['sln_path'])
@@ -43,7 +43,7 @@ def complie_and_zip():
     # 复制到临时dll目录下
     copy_dll(PATH_INFO['back_dll_path'], PATH_INFO['PBackRelease_path'], portal())
     # 将此dll目录打包
-    zip_dir('PBackRelease',PATH_INFO['PBackRelease_path'],PATH_INFO['tmp_path'])
+    zip_dir('PBackRelease', PATH_INFO['PBackRelease_path'], PATH_INFO['tmp_path'])
 
 
 # 测试
@@ -62,7 +62,7 @@ def portalBackRelease():
     complie_and_zip()
     time.sleep(2)
     conn_and_deploy(PORTAL_SERVER2[0], PORTAL_SERVER2[1], PORTAL_SERVER2[2], PATH_INFO['PBZip_path'],
-                    PATH_INFO['target_path'])
+                    PATH_INFO['target_path'], CMD)
     print(info('server1(60) deployed'))
 
 

@@ -4,8 +4,8 @@ import sys
 import time
 import datetime
 
-from appRelease import build_h5, build_vue, del_file, del_files
-from portalRelease import git_pull, copy_dir
+from .appRelease import build_h5, build_vue, del_file, del_files
+from .portalRelease import git_pull, copy_dir
 
 
 def git_push():

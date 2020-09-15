@@ -1,0 +1,15 @@
+2020-09-15 16:00:18,317 - logger.py[line:45] - DEBUG: debug
+2020-09-15 16:00:18,318 - logger.py[line:46] - INFO: info
+2020-09-15 16:00:18,318 - logger.py[line:47] - WARNING: 警告
+2020-09-15 16:00:18,319 - logger.py[line:48] - ERROR: 报错
+2020-09-15 16:00:18,319 - logger.py[line:49] - CRITICAL: 严重
+2020-09-15 16:05:23,887 - logger.py[line:45] - DEBUG: debug
+2020-09-15 16:05:23,887 - logger.py[line:46] - INFO: info
+2020-09-15 16:05:23,887 - logger.py[line:47] - WARNING: 警告
+2020-09-15 16:05:23,887 - logger.py[line:48] - ERROR: 报错
+2020-09-15 16:05:23,887 - logger.py[line:49] - CRITICAL: 严重
+2020-09-15 16:07:39,902 - logger.py[line:46] - DEBUG: debug
+2020-09-15 16:07:39,918 - logger.py[line:47] - INFO: info
+2020-09-15 16:07:39,918 - logger.py[line:48] - WARNING: 警告
+2020-09-15 16:07:39,918 - logger.py[line:49] - ERROR: 报错
+2020-09-15 16:07:39,918 - logger.py[line:50] - CRITICAL: 严重

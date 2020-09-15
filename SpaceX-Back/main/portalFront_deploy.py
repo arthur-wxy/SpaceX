@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -
 import time
 
-from server_conn import SSHConnect
-from portalRelease import git_pull
-from appRelease import build_vue
-from para_test import zip_dir
-from logger import info
+from .server_conn import SSHConnect
+from .portalRelease import git_pull
+from .appRelease import build_vue
+from .para_test import zip_dir
+from .logger import info
 
 
 # PORTAL_SERVER1 = ['10.151.66.21', 'crmadmin', 'auxp@ssw0rd']
@@ -21,9 +21,9 @@ PATH_INFO = {'portal_front_path': 'D:\Source\Portal-FrontEnd',
              'target_path': '/cygdrive/d/workspace/tmp_files/PFrontRelease.zip'
 }
 
-CMD = {'cmd1': 'cd /cygdrive/d/workspace/PortalWebPre && rm -rf static && rm -rf index.html',
-       'cmd2': 'cd /cygdrive/d/workspace/tmp_files && unzip -o PFrontRelease.zip -d /cygdrive/d/workspace/PortalWebPre'
-}
+# CMD = {'cmd1': 'cd /cygdrive/d/workspace/PortalWebPre && rm -rf static && rm -rf index.html',
+#        'cmd2': 'cd /cygdrive/d/workspace/tmp_files && unzip -o PFrontRelease.zip -d /cygdrive/d/workspace/PortalWebPre'
+# }
 
 
 # portal前端的发布,先打包
@@ -39,7 +39,7 @@ def build_and_zip():
     zip_dir('PFrontRelease', PATH_INFO['portal_build_path'], PATH_INFO['tmp_path'])
 
 # 连接服务器并部署
-def conn_and_deploy(host, user, pwd, src, dst):
+def conn_and_deploy(host, user, pwd, src, dst, CMD):
 
     # 连接服务器
     ssh = SSHConnect(hostname=host, username=user, password=pwd)

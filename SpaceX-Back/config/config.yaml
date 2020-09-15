@@ -1,14 +1,18 @@
 # 命令行全写在这
 cmd:
-  cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWebPre/bin
+  cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWeb/bin  # portalback
   cmd2: pwd
   cmd3: ls
 
 # 各种路径写在这
 path:
   portal_back_path: D:\Source\Portal-BackEnd
-  sln_path: D:\Source\Portal-BackEnd\dotnet_xrm\ServiceOne-Portal.sln
-  back_dll_path: D:\Source\Portal-BackEnd\dotnet_xrm\\bin
+  portal_sln_path: D:\Source\Portal-BackEnd\dotnet_xrm\ServiceOne-Portal.sln
+  portal_dll_path: D:\Source\Portal-BackEnd\dotnet_xrm\\bin
+  portal_dll_tmp_path: D:\Source\\tmp_files\portal_dll
+  tmp_files_path: D:\Source\\tmp_files
+  portal_back_src_path: D:\Source\\tmp_files\\PBackRelease.zip
+  portal_back_dst_path: /cygdrive/d/workspace/tmp_files/PBackRelease.zip
 
 # dll文件写在这
 dll:

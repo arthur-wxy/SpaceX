@@ -10,6 +10,7 @@ from flask import redirect
 from flask import jsonify
 from flask_cors import *
 from .main.portalBack_deploy import portalBackRelease
+from .main.startDeploy import portal_back_release
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
@@ -22,13 +23,14 @@ def start_deploy():
         dict1 = json.loads(a)
         # print(dict1)
         client = dict1['client']
-        server = dict1['server']
-        file = dict1['file']
+        server_list = dict1['server']
+        file_list = dict1['file']
         branch = dict1['branch']
-        print(client, server, file, branch)
+        print(client, server_list, file_list, branch)
         if client == 'appfront':
             try:
-                portalBackRelease()
+                # portalBackRelease()
+                time.sleep(10)
                 return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
             except:
                 return {'stateCode': '202', 'Msg': 'fail', 'client': '{}'.format(client)}
@@ -37,7 +39,11 @@ def start_deploy():
         elif client == 'portalfront':
             return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
         elif client == 'portalback':
-            return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
+            try:
+                portal_back_release(server_list, branch, file_list)
+                return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
+            except:
+                return {'stateCode': '202', 'Msg': 'fail', 'client': '{}'.format(client)}
         else:
             return {'stateCode': '203', 'Msg': 'fail', 'client': 'no such client'}
 
@@ -80,7 +86,7 @@ def get_files():
                      'RekTec.XStudio.Station.Biz.dll'
                      ],
                 'server':
-                    ['portal1',
+                    ['10.151.66.60',
                      'portal2',
                      'portal3',
                      'portal4'

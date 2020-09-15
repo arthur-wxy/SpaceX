@@ -1,12 +1,12 @@
 # -*- coding:utf-8 -*-
 import paramiko
 
-from logger import info
+from .logger import info
 
 
 class SSHConnect(object):
 
-    def __init__(self, hostname='10.151.66.61', username='crmadmin', password='auxp@ssw0rd', port=22, timeout=10):
+    def __init__(self, hostname, username='crmadmin', password='auxp@ssw0rd', port=22, timeout=10):
         self.hostname = hostname
         self.username = username
         self.password = password

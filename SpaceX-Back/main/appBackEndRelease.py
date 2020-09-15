@@ -1,6 +1,5 @@
 import sys
 import os
-import portalRelease
 import time
 import datetime
 

@@ -4,7 +4,7 @@ import paramiko
 import shutil
 import time
 
-from logger import info
+from .logger import info
 
 def sftp_upload_file(host, user, password, server_path, local_path, timeout=10):
     """
