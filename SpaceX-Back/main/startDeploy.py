@@ -6,14 +6,11 @@ import time
 import datetime
 import logging
 
-
 from main.server_conn import SSHConnect
 from main.para_test import zip_dir
 from main.appBackEndRelease import compile_sln
 from main.appBackUpload import copy_dll
-from main.appFrontUpload import build_h5 as run_gulp
-from main.appFrontUpload import build_vue
-
+from .logger import info
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -38,6 +35,30 @@ def code_pull(repo_path, branch):
     print(datetime.datetime.now().strftime('[%Y-%m-%d %H:%M:%S]') + '======== branch created')
     logging.info('branch created')
     os.system('git pull')  # 创建完拉取一下最新分支
+
+
+def front_build(src, src_path):
+    """
+    前端资源的构建
+    :param src: vue:0 angular:1
+    :param src_path: 构建资源的路径
+    :return:
+    """
+    os.chdir(src_path)
+    if src == 0:
+        try:
+            os.system('npm run build')
+            print(info('build completed'))
+            # logging.info('build completed')
+        except:
+            # logging.info('build failed')
+            print(info('build failed'))
+    else:
+        try:
+            os.system('start gulp')
+        except:
+            print(info('gulp failed'))
+            # logging.info('gulp failed')
 
 
 def connect_and_unzip(server_list, src_path, dst_path, cmd):
@@ -92,7 +113,7 @@ def portal_back_release(server_list, branch, dll_list):
     copy_dll(dll_path, portal_tmp_path, dll_list)
     #  将此dll目录打包
     zip_dir('PBackRelease', portal_tmp_path, tmp_files_path)
-    # 实例化连接，连接服务器，传输zip包并解压到对应目录
+    # 连接服务器，传输zip包并解压到对应目录
     connect_and_unzip(server_list, src_path, dst_path, cmd)
 
 
@@ -105,7 +126,26 @@ def portal_front_release(server_list, branch, dll_list):
     :return:
     """
     pass
+    with open('../config/config.yaml', 'r', encoding='UTF-8') as f:
+        a = yaml.load(f.read(), Loader=yaml.FullLoader)
+        repo_path = a['path']['portal_front_path']
+        portal_vue_path = a['path']['portal_vue_path']
+        portal_vue_build_path = a['path']['portal_vue_build_path']
+        tmp_files_path = a['path']['tmp_files_path']
+        src_path = a['path']['portal_front_src_path']
+        dst_path = a['path']['portal_front_dst_path']
+        cmd = a['path']['cmd3']
 
+    # 拉取代码
+    code_pull(repo_path, branch)
+    time.sleep(1)
+    # 前端构建
+    front_build(0, portal_vue_path)
+    time.sleep(1)
+    # 直接打包到tmp目录
+    zip_dir('pfront', portal_vue_build_path, tmp_files_path)
+    # 连接服务器，传输zip，解压
+    connect_and_unzip(server_list, src_path, dst_path, cmd)
 
 def app_back_release(server_list, branch, dll_list):
     """
@@ -138,6 +178,10 @@ def app_back_release(server_list, branch, dll_list):
     zip_dir('ABackRelease', app_tmp_path, tmp_files_path)
     # 连接服务器并传输zip、解压到对应目录
     connect_and_unzip(server_list, src_path, dst_path, cmd)
+
+
+def download_and_unzip(src_path, target_path):
+    pass
 
 
 # 测试

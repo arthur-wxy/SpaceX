@@ -2,7 +2,7 @@
 cmd:
   cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWeb/bin  # portalback
   cmd2: unzip -o /cygdrive/d/workspace/tmp_files/ABackRelease.zip -d /cygdrive/d/workspace/AppWeb-B-8085/bin >> log.txt  # appback
-  cmd3: ls
+  cmd3: cd /cygdrive/d/workspace/PortalWeb && rm -rf static && rm -rf index.html && unzip -o /cygdrive/d/workspace/tmp_files/pfront.zip -d /cygdrive/d/workspace/PortalWeb
 
 # 各种路径写在这
 path:
@@ -19,6 +19,11 @@ path:
   app_tmp_path: D:\Source\\tmp_files\mobile_dll
   app_back_src_path: D:\Source\\tmp_files\\ABackRelease.zip
   app_back_dst_path: /cygdrive/d/workspace/tmp_files/ABackRelease.zip
+  portal_front_path: D:\Source\Portal-FrontEnd
+  portal_vue_path: D:\Source\Portal-FrontEnd\h5
+  portal_vue_build_path: D:\Source\Portal-FrontEnd\h5\\build
+  portal_front_src_path: D:\Source\\tmp_files\pfront.zip
+  portal_front_dst_path: /cygdrive/d/workspace/tmp_files/pfront.zip
 
 
 # dll文件写在这
