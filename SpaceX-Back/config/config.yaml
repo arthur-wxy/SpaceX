@@ -1,7 +1,7 @@
 # 命令行全写在这
 cmd:
   cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWeb/bin  # portalback
-  cmd2: pwd
+  cmd2: unzip -o /cygdrive/d/workspace/tmp_files/ABackRelease.zip -d /cygdrive/d/workspace/AppWeb-B-8085/bin >> log.txt  # appback
   cmd3: ls
 
 # 各种路径写在这
@@ -13,6 +13,13 @@ path:
   tmp_files_path: D:\Source\\tmp_files
   portal_back_src_path: D:\Source\\tmp_files\\PBackRelease.zip
   portal_back_dst_path: /cygdrive/d/workspace/tmp_files/PBackRelease.zip
+  app_back_path: D:\Source\APP-BackEnd
+  app_sln_path: D:\Source\APP-BackEnd\DotNetSource\RekTec.Xmobile.sln
+  app_dll_path: D:\Source\APP-BackEnd\DotNetSource\\bin
+  app_tmp_path: D:\Source\\tmp_files\mobile_dll
+  app_back_src_path: D:\Source\\tmp_files\\ABackRelease.zip
+  app_back_dst_path: /cygdrive/d/workspace/tmp_files/ABackRelease.zip
+
 
 # dll文件写在这
 dll:

@@ -103,7 +103,7 @@ def start_deploy():
                 time.sleep(10)
                 return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
             except:
-                return {'stateCode': '202', 'Msg': 'fail', 'client': '{}'.format(client)}
+                return {'stateCode': '202', 'Msg': 'failed', 'client': '{}'.format(client)}
         elif client == 'appback':
             return {'stateCode': '200', 'Msg': 'success', 'client': '{}'.format(client)}
         elif client == 'portalfront':
