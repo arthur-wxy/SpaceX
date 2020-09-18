@@ -2,7 +2,11 @@
 cmd:
   cmd1: cd /cygdrive/d/workspace/tmp_files && unzip -o PBackRelease.zip -d /cygdrive/d/workspace/PortalWeb/bin  # portalback
   cmd2: unzip -o /cygdrive/d/workspace/tmp_files/ABackRelease.zip -d /cygdrive/d/workspace/AppWeb-B-8085/bin >> log.txt  # appback
+  # portalfront
   cmd3: cd /cygdrive/d/workspace/PortalWeb && rm -rf static && rm -rf index.html && unzip -o /cygdrive/d/workspace/tmp_files/pfront.zip -d /cygdrive/d/workspace/PortalWeb
+  # appfront
+  cmd4: cd /cygdrive/d/workspace/AppWeb-B-8085/debug && rm -rf v2 && mkdir v2 && unzip -o /cygdrive/d/workspace/tmp_files/vue.zip -d /cygdrive/d/workspace/AppWeb-B-8085/debug/v2
+  cmd5: unzip -o /cygdrive/d/workspace/tmp_files/angular.zip -d /cygdrive/d/workspace/AppWeb-B-8085/debug
 
 # 各种路径写在这
 path:
@@ -24,6 +28,16 @@ path:
   portal_vue_build_path: D:\Source\Portal-FrontEnd\h5\\build
   portal_front_src_path: D:\Source\\tmp_files\pfront.zip
   portal_front_dst_path: /cygdrive/d/workspace/tmp_files/pfront.zip
+  app_front_path: D:\Source\APP-FrontEnd
+  app_vue_path: D:\Source\APP-FrontEnd\HtmlSource_app\h5-v2
+  app_angular_path: D:\Source\APP-FrontEnd\HtmlSource_app\h5
+  app_vue_build_path: D:\Source\APP-FrontEnd\HtmlSource_app\h5-v2\dist
+  app_angular_build_Path: D:\Source\APP-FrontEnd\HtmlSource_app\h5\\build\debug
+  app_vue_src_path: D:\Source\\tmp_files\\vue.zip
+  app_angular_src_path: D:\Source\\tmp_files\\angular.zip
+  app_vue_dst_path: /cygdrive/d/workspace/tmp_files/vue.zip
+  app_angular_dst_path: /cygdrive/d/workspace/tmp_files/angular.zip
+
 
 
 # dll文件写在这
